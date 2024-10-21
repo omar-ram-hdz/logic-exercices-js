@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Número de caracteres | Jonmircha Ejercicios</title>
+  </head>
+  <body>
+    <h1>Número de caracteres</h1>
+    <p>
+      Programa una función que cuente el número de caracteres de una cadena de
+      texto, pe. miFuncion("Hola Mundo") devolverá 10
+    </p>
+    <script>
+      function contarCaracteres(text) {
+        if (!text) return console.info("El parámetro 'text' es requerido");
+        if (typeof text !== "string")
+          return console.info("El tipo de dato debe ser string");
+        return console.log(text.length);
+      }
+      contarCaracteres("123456");
+      contarCaracteres("Hola esto es de ejemplo");
+    </script>
+  </body>
+</html>
