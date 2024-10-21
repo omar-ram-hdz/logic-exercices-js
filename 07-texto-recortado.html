@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Texto recortado | Jonmircha Ejercicios</title>
+  </head>
+  <body>
+    <h1>Texto recortado</h1>
+    <p>
+      Programa una función que te devuelva el texto recortado según el número de
+      caracteres indicados, pe. miFuncion("Hola Mundo", 4) devolverá "Hola"
+    </p>
+    <script>
+      function recortarTexto(texto, numCaracteres) {
+        if (!texto) return console.log("El texto es requerido");
+        if (typeof texto !== "string")
+          return console.log("El texto debe ser de tipo string");
+        if (typeof numCaracteres !== "number")
+          return console.log("El numero de caracteres debe ser de tipo number");
+        return console.log(texto.slice(0, numCaracteres));
+      }
+      recortarTexto("Hola Mundo", 4);
+      recortarTexto("1234567", 4);
+    </script>
+  </body>
+</html>
