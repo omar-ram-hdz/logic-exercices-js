@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora | JavaScript Digital House</title>
+  </head>
+  <body>
+    <h1>Calculadora</h1>
+    <script>
+      const operaciones = Object.freeze({
+        suma: (valor1, valor2) => valor1 + valor2,
+        resta: (valor1, valor2) => valor1 - valor2,
+        multiplicacion: (valor1, valor2) => valor1 * valor2,
+        division: (valor1, valor2) => valor1 / valor2,
+      });
+      const simbolos = Object.freeze({
+        suma: "+",
+        resta: "-",
+        multiplicacion: "x",
+        division: "/",
+      });
+      function calculadora(opcion, numero1, numero2) {
+        if (!Object.hasOwn(operaciones, opcion))
+          return console.error("Operación invalida");
+        if (typeof numero1 !== "number")
+          return console.info("El valor 1 debe ser un número");
+        if (typeof numero2 !== "number")
+          return console.info("El valor 2 debe ser un número");
+        if (opcion === "division" && numero2 === 0)
+          return console.error("No se puede dividir entre 0");
+
+        let resultado = operaciones[opcion](numero1, numero2);
+        return console.log(
+          `El resultado de la ${opcion} de ${numero1} ${simbolos[opcion]} ${numero2} es: ${resultado} `
+        );
+      }
+      calculadora("suma", 10, 5);
+      calculadora("resta", 10, 5);
+      calculadora("multiplicacion", 2, 8);
+      calculadora("division", 2, 0);
+      calculadora("division", 10, 2);
+    </script>
+  </body>
+</html>
