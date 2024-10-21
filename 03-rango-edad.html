@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rango de edad | JavaScript Digital House</title>
+  </head>
+  <body>
+    <h1>Rango de edad</h1>
+    <p>
+      Escribe una función que determine en qué categoría de edad se encuentra
+      una persona. Utiliza las estructuras que consideres necesarias para
+      clasificar a las personas en rangos como niño, adolescente, adulto joven,
+      adulto, etc., según su edad.
+    </p>
+    <script>
+      function rangoEdad(edad) {
+        if (edad >= 0 && edad <= 11) {
+          console.log("Niño");
+        } else if (edad >= 12 && edad <= 17) {
+          console.log("Adolescente");
+        } else if (edad >= 18 && edad <= 29) {
+          console.log("Jóvenes");
+        }
+      }
+      rangoEdad(0);
+      rangoEdad(11);
+      rangoEdad(17);
+      rangoEdad(18);
+    </script>
+  </body>
+</html>
