@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Invertir texto | Jonmircha Ejercicios</title>
+  </head>
+  <body>
+    <h1>Invertir texto</h1>
+    <p>
+      Programa una función que invierta las palabras de una cadena de texto, pe.
+      miFuncion("Hola Mundo") devolverá "odnuM aloH"
+    </p>
+    <script>
+      function invertirTexto(texto) {
+        if (!texto) return console.info("El parámetro 'texto' es obligatorio");
+        if (typeof texto !== "string")
+          return console.warn("El parámetro 'texto' debe ser un string");
+        let resultado = texto.split("").reverse().join("");
+        return console.log(resultado);
+      }
+      invertirTexto("Hola Mundo");
+    </script>
+  </body>
+</html>
