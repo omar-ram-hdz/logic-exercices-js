@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Repetir texto | Jonmircha Ejercicios</title>
+  </head>
+  <body>
+    <h1>Repetir texto</h1>
+    <p>
+      Programa una función que repita un texto X veces, pe. miFuncion('Hola
+      Mundo', 3) devolverá Hola Mundo Hola Mundo Hola Mundo
+    </p>
+    <script>
+      function repetirTexto(texto, veces) {
+        if (!texto) return console.info("El parámetro 'texto' es obligatorio");
+        if (typeof texto !== "string")
+          return console.warn("El parámetro 'texto' debe ser un string");
+        if (typeof veces !== "number")
+          return console.warn("El parámetro 'veces' debe ser un número");
+        if (veces <= 0)
+          return console.warn("El parámetro 'veces' debe ser mayor a cero");
+        let resultado = "";
+        for (let i = 0; i < veces; i++) resultado += texto;
+
+        return console.log(resultado);
+      }
+      repetirTexto("Hola Mundo", 3);
+    </script>
+  </body>
+</html>
