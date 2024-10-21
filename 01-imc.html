@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Indice de masa corporal |JavaScript Digital House</title>
+  </head>
+  <body>
+    <h1>Indice de masa corporal</h1>
+    <p>
+      Crea una función que calcule el IMC utilizando los parámetros de peso y
+      altura. Usa operadores aritméticos y condicionales para evaluar diferentes
+      rangos de IMC (bajo peso, peso normal, sobrepeso, etc.).
+    </p>
+    <script>
+      function calcularIMC(peso, altura) {
+        const IMC = peso / (altura * altura);
+        console.group(`IMC ${peso}kg/${altura}m`);
+        console.log(`IMC: ${IMC}`);
+        if (IMC < 18.5) {
+          console.log("Rango: Bajo peso - Insuficiencia");
+        } else if (IMC < 25) {
+          console.log("Rango: Peso normal");
+        } else if (IMC < 30) {
+          console.log("Rango: Sobrepeso - pre obesidad");
+        } else if (IMC < 35) {
+          console.log("Rango: Obesidad");
+        } else if (IMC < 40) {
+          console.log("Rango: Obesidad grave - clase 1");
+        } else if (IMC < 45) {
+          console.log("Rango: Obesidad severo - clase 2");
+        } else if (IMC < 50) {
+          console.log("Rango: Obesidad crónica - clase 3");
+        } else {
+          console.log("Rango de peso desconocido");
+        }
+        console.groupEnd();
+      }
+
+      calcularIMC(70, 1.8);
+      calcularIMC(49, 1.5);
+    </script>
+  </body>
+</html>
