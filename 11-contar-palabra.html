@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contar palabra | Jonmircha Ejercicios</title>
+  </head>
+  <body>
+    <h1>Contar palabra</h1>
+    <p>
+      Programa una función para contar el número de veces que se repite una
+      palabra en un texto largo, pe. miFuncion("hola mundo adios mundo",
+      "mundo") devolverá 2
+    </p>
+    <script>
+      function contarPalabra(texto, palabra) {
+        if (!texto) return console.info("El parámetro 'texto' es obligatorio");
+        if (typeof texto !== "string")
+          return console.warn("El parámetro 'texto' debe ser un string");
+        if (!palabra)
+          return console.info("El parámetro 'palabra' es obligatorio");
+        if (typeof palabra !== "string")
+          return console.warn("El parámetro 'palabra' debe ser un string");
+        let resultado = texto.split(palabra).length - 1;
+        return console.log(resultado);
+      }
+      contarPalabra("hola mundo adios mundo", "mundo");
+    </script>
+  </body>
+</html>
