@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Separar textos | Jonmircha Ejercicios</title>
+  </head>
+  <body>
+    <h1>Separar textos</h1>
+    <script>
+      function separarTextos(texto, separador) {
+        if (!texto) return console.log("El texto es requerido");
+        if (typeof texto !== "string")
+          return console.warn("El texto debe ser string");
+        if (!separador) return console.log("El separador es requerido");
+        if (typeof separador !== "string")
+          return console.warn("El separador debe ser string");
+        return console.log(texto.split(separador));
+      }
+      separarTextos("Hola que tal", " ");
+    </script>
+  </body>
+</html>
