@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Convertor de monedas | JavaScript Digital House</title>
+  </head>
+  <body>
+    <h1>Convertor de monedas</h1>
+    <p>
+      Crea una función que convierta una cantidad de dinero de una moneda a
+      otra. Usa variables para almacenar tasas de cambio y condicionales para
+      manejar diferentes tipos de monedas.
+    </p>
+    <script>
+      function convertirMoneda(cantidad, monedaOrigen, monedaDestino) {
+        const monedas = {
+          euro: {
+            dolar: 1.08,
+            peso: 21.68,
+          },
+          dolar: {
+            euro: 0.92,
+            peso: 20.04,
+          },
+          peso: {
+            euro: 0.046,
+            dolar: 0.05,
+          },
+        };
+        if (!Object.hasOwn(monedas, monedaOrigen)) {
+          console.error("Moneda de origen no válida");
+          return;
+        }
+        if (!Object.hasOwn(monedas, monedaDestino)) {
+          console.error("Moneda de destino no válida");
+          return;
+        }
+        console.log(
+          `Conversión de ${cantidad} ${monedaOrigen} a ${monedaDestino} es: ${
+            cantidad * monedas[monedaOrigen][monedaDestino]
+          } ${monedaDestino}`
+        );
+      }
+      convertirMoneda(10, "dolar", "peso");
+    </script>
+  </body>
+</html>
