@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mensajes personalizados | JavaScript Digital House</title>
+  </head>
+  <body>
+    <h1>Mensajes personalizados</h1>
+    <p>
+      Crea una función que genere un mensaje personalizado para un usuario según
+      su nombre y el momento del día (solo tendremos en consideración si es de
+      mañana, o es de tarde). Utiliza concatenación e interpolación para
+      construir el mensaje, y condicionales (if ternario) para incluir
+      diferentes saludos.
+    </p>
+    <script>
+      function saludoPersonalizado(nombre) {
+        if (!nombre) return console.info("El nombre es requerido");
+        if (typeof nombre !== "string")
+          return console.error("El nombre es un tipo de dato invalido");
+        const hora = new Date().getHours();
+        const mensajeHora =
+          hora < 12
+            ? "Buenos días"
+            : hora < 20
+            ? "Buenas tardes"
+            : "Buenas noches";
+        return console.log(`${mensajeHora} ${nombre}`);
+      }
+      saludoPersonalizado("Omar Rh");
+      saludoPersonalizado("Josue RH");
+    </script>
+  </body>
+</html>
