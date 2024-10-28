@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es-XM">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manipular Objetos | JavaScript Digital House</title>
+  </head>
+  <body>
+    <h1>Manipular Objetos</h1>
+    <p>
+      Crea un objeto llamado ‘persona’ que contenga como propiedades: nombre,
+      edad y ocupación. Crea una función que muestre cada propiedad de dicho
+      objeto por consola, la debes invocar para ver sus valores. Luego, modifica
+      el valor de ‘ocupación’ y agrega la propiedad ‘habilidad’. Llama
+      nuevamente a la función creada para visualizar el cambio efectuado.
+    </p>
+    <script>
+      const persona = {
+        nombre: "Omar",
+        edad: 17,
+        ocupación: "Desarrollador",
+      };
+      function mostrarPropiedades(obj = {}) {
+        let arr = [];
+        for (let key in obj) {
+          arr.push([key, obj[key]]);
+        }
+        return arr;
+      }
+      console.log(mostrarPropiedades(persona));
+      persona.ocupación = "Diseñador";
+      persona.habilidad = "Nunchakus";
+      console.log(mostrarPropiedades(persona));
+    </script>
+  </body>
+</html>
