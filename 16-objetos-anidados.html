@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Objetos anidados | JavaScript Digital House</title>
+  </head>
+  <body>
+    <h1>Objetos anidados</h1>
+    <p>
+      Agrega una nueva propiedad al objeto creado en el
+      <b>
+        <i>
+          <a href="./15-manipular-objetos.html">ejercicio anterior</a>
+        </i>
+      </b>
+      llamada ‘ubicacion’, donde deberás guardar un objeto interno con las
+      propiedades: codigoPostal, ciudad, calle y número. Luego, crea una función
+      que reciba dicho objeto por parámetro y le permita al usuario eliminar
+      solo una de las propiedades del objeto.
+    </p>
+    <script>
+      const persona = {
+        nombre: "Omar",
+        edad: 17,
+        ocupación: "Desarrollador",
+        habilidad: "Nunchakus",
+        ubiacion: {
+          codigoPostal: 90450,
+          ciudad: "Tlaxcala",
+          calle: "Priv. No existo",
+          numero: 66,
+        },
+      };
+      function showMenu(obj = {}) {
+        let i = 1;
+        let keys = [];
+        document.write("Opciones:");
+        for (let key in obj) {
+          keys.push(key);
+          i += 1;
+        }
+        let listOptions = keys.map((el, i) => `<li>${i + 1} ${el}</li>`);
+        document.write("<ul>" + listOptions.join(" ") + "</ul>");
+        return keys;
+      }
+      function getInput(l = 0) {
+        let input = parseInt(prompt("Ingresa que opción deseas eliminar"));
+        if (!input) return console.error("La respuesta es obligatoria");
+        if (typeof input !== "number")
+          return console.error("Debes ingresar un número");
+        if (input > l) return console.warn("Opción invalida");
+        return input;
+      }
+      function eliminarAtributo(obj = {}) {
+        // Mostrar menú
+        let listOptions = showMenu(obj);
+        // Conseguir selección
+        setTimeout(() => {
+          let selection = listOptions[getInput(listOptions.length) - 1];
+          if (!selection) return;
+          // Mostrar objeto original
+          console.log("Objeto original: " + JSON.stringify(obj));
+          delete obj[selection];
+          console.log(
+            `Objeto después de eliminar ${selection}: ` + JSON.stringify(obj)
+          );
+        }, 500);
+      }
+      eliminarAtributo(persona);
+    </script>
+  </body>
+</html>
