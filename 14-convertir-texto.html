@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Convertir texto | JavaScript Digital House</title>
+  </head>
+  <body>
+    <h1>Convertir texto</h1>
+    <p>
+      Crea una función que reciba un string por parámetro y lo convierta a
+      mayúsculas y minúsculas respectivamente. La función deberá mostrar los
+      resultados por consola. Para esto, averiguar qué hacen los métodos de
+      Strings: toUpperCase() y toLowerCase()
+    </p>
+    <script>
+      function toLowerAndUpperCase(string = "") {
+        return [string.toLowerCase(), string.toUpperCase()];
+      }
+      console.log(toLowerAndUpperCase("Hola mundo"));
+    </script>
+  </body>
+</html>
