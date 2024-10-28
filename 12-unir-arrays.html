@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unir Arrays | JavaScript Digital House</title>
+  </head>
+  <body>
+    <h1>Unir Arrays</h1>
+    <p>
+      Unir dos arrays: Crea una función llamada ‘unirArrays’ que tome dos arrays
+      como parámetros y los una en uno solo. La función debe devolver el nuevo
+      array.Para esto, averiguar qué hace el método .concat()
+    </p>
+    <script>
+      function unirArraysConConcat(arreglo1, arreglo2) {
+        return arreglo1.concat(arreglo2);
+      }
+      function unirArraysConDestruct(arreglo1, arreglo2) {
+        return [...arreglo1, ...arreglo2];
+      }
+      let arr1 = [1, 2, 3],
+        arr2 = [4, 5, 6];
+      console.time("Uniendo arreglos con Concat");
+      console.log(unirArraysConConcat(arr1, arr2));
+      console.timeLog("Uniendo arreglos con Concat");
+
+      console.time("Uniendo arreglos con Destructuración");
+      console.log(unirArraysConDestruct(arr1, arr2));
+      console.timeLog("Uniendo arreglos con Destructuración");
+    </script>
+  </body>
+</html>
