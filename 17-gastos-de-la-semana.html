@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gastos de la semana | JavaScript DigitalHouse</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: sans-serif;
+        background-color: #222;
+        color: #eeeeee;
+      }
+      main {
+        max-width: 700px;
+        margin: auto;
+      }
+      h1 {
+        margin-bottom: 12px;
+      }
+      h2 {
+        margin-bottom: 6px;
+      }
+      p {
+        color: #bbbbbb;
+        & strong {
+          color: #cdcdcd;
+        }
+      }
+      ol {
+        list-style-position: outside;
+        padding: 0 3ch;
+        margin-top: 2ch;
+        & li {
+          margin-bottom: 1ch;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Gastos de la semana</h1>
+      <h2>Matrices</h2>
+      <p>
+        Se está realizando el desarrollo de una aplicación para control de
+        gastos. Cada día, el usuario ingresa sus gastos cotidianos. La idea es
+        solo registrar el total de los gastos, al finalizar la jornada. Para
+        simplificar, vamos a considerar que todos los meses tienen cuatro
+        semanas. Los gastos estarán en una matriz de 4x7, cada fila representa
+        una semana y cada columna un día. Es decir fila 0, semana 1, fila 1,
+        semana 2, etc. Columna 0, dia 1, columna 1, dia 2, etcétera.
+      </p>
+      <ol>
+        <li>
+          <p>
+            <strong>Gastos de toda la semana:</strong> Crear una función que nos
+            sirva para obtener el total de gastos de una semana específica.
+            Recordemos que cada fila representa una semana. El número de semana
+            deberá recibirse por parámetro.
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong>Gastos de un día de la semana:</strong> Crea una función que
+            nos sirva para obtener el total de gastos de un día específico de la
+            semana. Por ejemplo, del gasto de todos los martes del mes, o el
+            gasto de todos los sábados del mes. El número correspondiente al día
+            deberá recibirse por parámetro. Recuerda que el número de día es
+            determinado por las columnas.
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong>Gasto total:</strong> Crea una función que nos sirva para
+            obtener el valor total de gastos de todo un mes. La función deberá
+            retornar dicho valor.
+          </p>
+        </li>
+      </ol>
+    </main>
+    <script>
+      const semana = [0, 0, 0, 0, 0, 0, 0];
+      let mes = [semana, semana, semana, semana];
+      const gastosSemana = function (semana) {
+        if (!semana && semana !== 0)
+          return console.warn("El parámetro semana es requerido");
+        if (semana < 0) return console.warn("No se admiten valores negativos");
+        if (semana > 3) return console.warn("El més solo tiene 4 semanas");
+        return mes[semana].reduce((acc, cur) => acc + cur);
+      };
+      const gastosDia = function (dia) {
+        if (!dia && dia !== 0)
+          return console.warn("El parámetro día es requerido");
+        if (dia < 0) return console.warn("No se admiten valores negativos");
+        if (dia > 6) return console.warn("Una semana solo tiene 7 días");
+        return mes.reduce((acc, cur) => acc + cur[dia], 0);
+      };
+      const gastoTotal = () =>
+        mes.reduce((acc, cur) => acc + cur.reduce((a, c) => a + c), 0);
+
+      const fillMes = (mes) =>
+        mes.map((el) => el.map(() => Math.floor(Math.random() * 500)));
+      mes = fillMes(mes);
+      console.table(mes);
+      console.log("El total de la semana tres es:" + gastosSemana(2));
+      console.log("El total del día 1 es:" + gastosDia(0));
+      console.log("El gasto total del mes es:" + gastoTotal());
+    </script>
+  </body>
+</html>
