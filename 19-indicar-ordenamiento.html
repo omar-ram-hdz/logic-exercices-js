@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Indicar ordenamiento | JavaScript DigitalHouse</title>
+  </head>
+  <body>
+    <h1>Indicar ordenamiento</h1>
+    <p>
+      Crea una función que reciba por parámetro un array de números e indique si
+      el array se encuentra ordenado de forma ascendente o no.
+    </p>
+    <script>
+      const { warn, log } = console;
+      const estaOrdenado = function (arr) {
+        if (!arr instanceof Array)
+          return warn("El parámetro debe ser de tipo Array");
+        if (arr.length === 0) return warn("El Array no puede estar vacío");
+        for (let i = 0; i < arr.length - 1; i++)
+          if (arr[i] > arr[i + 1]) return false;
+        return true;
+      };
+      let arrayDesOrdenado = [7, 0, 8, 5, 3],
+        arrayDesOrdenado2 = [1, 2, 3, 4, 6, 5];
+      let arrayOrdenado = [1, 2, 3, 4, 5];
+
+      log(
+        "El arreglo: ",
+        arrayDesOrdenado,
+        "está",
+        estaOrdenado(arrayDesOrdenado) ? "ordenado" : "desordenado"
+      );
+      log(
+        "El arreglo: ",
+        arrayDesOrdenado2,
+        "está",
+        estaOrdenado(arrayDesOrdenado2) ? "ordenado" : "desordenado"
+      );
+      log(
+        "El arreglo: ",
+        arrayOrdenado,
+        "está",
+        estaOrdenado(arrayOrdenado) ? "ordenado" : "desordenado"
+      );
+    </script>
+  </body>
+</html>
