@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Obtener Votos | JavaScript DigitalHouse</title>
+  </head>
+  <body>
+    <h1>Obtener Votos</h1>
+    <p>
+      Dado un array con los datos de una encuesta realizada sobre los temas
+      musicales más populares —lo que se tiene en el array son objetos definidos
+      con el nombre de un tema musical y cantidad de votos que obtuvo— crear el
+      array con los datos de 5 temas y una cantidad de votos para cada uno. Los
+      votos obtenidos deben estar desordenados. Una vez creado el array, se
+      deberá escribir un algoritmo que, dado un tema, me informe cuántos votos
+      obtuvo, considerando:
+    </p>
+    <ul>
+      <li>Resolverlo aplicando búsqueda lineal</li>
+      <li>Resolverlo aplicando búsqueda binaria</li>
+    </ul>
+    <script>
+      /*Declaración de funciones*/
+      const { warn, log, error } = console;
+      const ordenarDatos = function (datos) {
+        if (!datos) return error("El parámetro datos es obligatorio");
+        if (!datos instanceof Array)
+          return warn("El parámetro datos debe ser de tipo Array");
+        if (datos.length === 0) return warn("El Array no puede estar vacío");
+        for (let r = 0; r < datos.length; r++)
+          for (let i = 0; i < datos.length - 1; i++) {
+            if (datos[i].nombre > datos[i + 1].nombre) {
+              let aux = datos[i];
+              datos[i] = datos[i + 1];
+              datos[i + 1] = aux;
+            }
+          }
+        return datos;
+      };
+      const obtenerVotosConBusquedaLineal = function (datos, tema) {
+        if (!datos) return error("El parámetro datos es obligatorio");
+        if (!datos instanceof Array)
+          return warn("El parámetro datos debe ser de tipo Array");
+        if (datos.length === 0) return warn("El Array no puede estar vacío");
+        if (!tema) return error("El parámetro tema es obligatorio");
+        if (typeof tema !== "string")
+          return warn("El parámetro tema debe ser de tipo string");
+        for (let i = 0; i < datos.length; i++) {
+          if (datos[i].nombre === tema) return datos[i].votos;
+        }
+        return "No se encontró el tema";
+      };
+      const obtenerVotosConBusquedaBinaria = function (datos, tema) {
+        if (!datos) return error("El parámetro datos es obligatorio");
+        if (!datos instanceof Array)
+          return warn("El parámetro datos debe ser de tipo Array");
+        if (datos.length === 0) return warn("El Array no puede estar vacío");
+        if (!tema) return error("El parámetro tema es obligatorio");
+        if (typeof tema !== "string")
+          return warn("El parámetro tema debe ser de tipo string");
+        let inicio = 0,
+          limite = datos.length - 1;
+        while (inicio <= limite) {
+          const mitad = Math.round((inicio + limite) / 2);
+          const elementoMitad = datos[mitad];
+          if (elementoMitad.nombre === tema) return elementoMitad.votos;
+          if (elementoMitad.nombre > tema) limite = mitad - 1;
+          else inicio = mitad + 1;
+        }
+        return "No se encontró el tema";
+      };
+      const obtenerVotos = function (datos = [], tema) {
+        if (!datos) return error("El parámetro datos es obligatorio");
+        if (!datos instanceof Array)
+          return warn("El parámetro datos debe ser de tipo Array");
+        if (datos.length === 0) return warn("El Array no puede estar vacío");
+        return (
+          datos.find((dato) => dato.nombre === tema) || "No se encontró el tema"
+        );
+      };
+      /*Implementación*/
+      let temasMusicales = [
+        {
+          nombre: "Rock",
+          votos: 10,
+        },
+        {
+          nombre: "Clasico",
+          votos: 8,
+        },
+        {
+          nombre: "Electronica",
+          votos: 15,
+        },
+        {
+          nombre: "Regueton",
+          votos: 20,
+        },
+        {
+          nombre: "Bachata",
+          votos: 4,
+        },
+      ];
+      log("Arreglo original: ", temasMusicales);
+      log(
+        "Número de votos usando búsqueda Lineal del tema 'rock': ",
+        obtenerVotosConBusquedaLineal(temasMusicales, "Rock")
+      );
+      temasMusicales = ordenarDatos(temasMusicales);
+      log("Arreglo ordenado: ", temasMusicales);
+      log(
+        "Número de votos usando búsqueda binaria del tem 'electronica': ",
+        obtenerVotosConBusquedaBinaria(temasMusicales, "Electronica")
+      );
+    </script>
+  </body>
+</html>
