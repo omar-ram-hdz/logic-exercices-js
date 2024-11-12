@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contar número | JavaScript DigitalHouse</title>
+  </head>
+  <body>
+    <h1>Contar número</h1>
+    <p>
+      Crea una función que reciba por parámetro un número y un array de números,
+      y devuelva la cantidad de veces que aparece ese número en el array
+      utilizando búsqueda lineal.
+    </p>
+    <script>
+      const { warn, info, error } = console;
+      // Eliminar parámetros
+      const contarNumero = function (array, numero2Buscar) {
+        if (!array) return error("El parámetro array es requerido");
+        if (!array instanceof Array)
+          return warn("El parámetro array debe ser de tipo Array");
+        if (array.length === 0) return warn("El Array no puede estar vacío");
+        if (!numero2Buscar) return error("El número a buscar es requerido");
+        if (typeof numero2Buscar !== "number")
+          return warn("El parámetro numero2Buscar debe ser de tipo number");
+        let coincidencias = array.filter((num) => num === numero2Buscar);
+        return coincidencias.length;
+      };
+      let arr = [1, 2, 3, 4, 4];
+      let arr2 = [1, 2, 3, 4];
+      let arr3 = [1, 2, 3];
+      info(
+        "La cantidad de veces que el número 4 se repite en: ",
+        arr,
+        " es: ",
+        contarNumero(arr, 4)
+      );
+      info(
+        "La cantidad de veces que el número 4 se repite en: ",
+        arr2,
+        " es: ",
+        contarNumero(arr2, 4)
+      );
+      info(
+        "La cantidad de veces que el número 4 se repite en: ",
+        arr3,
+        " es: ",
+        contarNumero(arr3, 4)
+      );
+    </script>
+  </body>
+</html>
