@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BubbleSort | JavaScript DigitalHouse</title>
+  </head>
+  <body>
+    <h1>BubbleSort</h1>
+    <p>
+      Crea una función que reciba por parámetro un array de números y los ordene
+      de menor a mayor mediante el ordenamiento burbuja.
+    </p>
+    <script>
+      const bubbleSort = function (arr) {
+        if (!arr instanceof Array)
+          return console.warn("El parámetro debe ser de tipo Array");
+        if (arr.length === 0)
+          return console.warn("El Array no puede estar vacío");
+        const l = arr.length;
+        for (let r = 0; r < l; r++)
+          for (let i = 0; i < l - 1; i++) {
+            if (arr[i] > arr[i + 1]) {
+              let aux = arr[i];
+              arr[i] = arr[i + 1];
+              arr[i + 1] = aux;
+            }
+          }
+        return arr;
+      };
+      let array = [9, 0, 23, 0, 45, 1, 6];
+      console.log("Original:", array);
+      array = bubbleSort(array);
+      console.log("Ordenado:", array);
+    </script>
+  </body>
+</html>
